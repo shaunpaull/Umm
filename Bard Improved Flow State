@@ -35,6 +35,7 @@ public:
     void learn();
     void makeDecisions();
     void communicate();
+    void askQuestion();
 };
 
 int main() {
@@ -66,10 +67,20 @@ int main() {
                 break;
             case ArtificialGeneralIntelligence::FlowState::Communicate:
                 agi.communicate();
+                agi.askQuestion(); // Ask a question during the communicate state
                 flowState = ArtificialGeneralIntelligence::FlowState::PerceiveEnvironment;
                 break;
         }
     }
 
     return 0;
+}
+
+void ArtificialGeneralIntelligence::askQuestion() {
+    std::string question;
+    std::cout << "Enter a question: ";
+    std::getline(std::cin, question);
+    std::cout << "You asked: " << question << std::endl;
+    // Process the question and generate a response
+    // ...
 }
